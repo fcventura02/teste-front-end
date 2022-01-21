@@ -1,0 +1,18 @@
+:root {
+  --blue: #003e85;
+  --white: #fff;
+  --black: #000;
+  --yellow: #fdd000;
+  --yellowS: #ffdb33;
+  --gray: #707070;
+  --grayS: #9f9f9f;
+  --grayT: #0000001a;
+	--font-gill-sans: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-gill-sans)
+}
