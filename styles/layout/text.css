@@ -1,0 +1,42 @@
+h1 {
+  font-size: 4rem /*64px*/;
+  line-height: 4.625rem /*74px*/;
+  color: var(--black);
+}
+
+h2 {
+  font-size: 2.25rem /*36px*/;
+  line-height: 2.875rem /*46px*/;
+  color: var(--black);
+}
+
+p, a{
+  font-size: 1.375rem /*22px*/;
+  line-height: 2rem /*32px*/;
+  color: var(--black);
+}
+
+label {
+  font-size: 1.25rem /*20px*/;
+  line-height: 1.875rem /*30px*/;
+  color: var(--black);
+}
+
+span {
+  width: 100%;
+  font-size: 1rem /*16px*/;
+  line-height: 1.625rem /*26px*/;
+  color: var(--black);
+}
+
+a{
+  text-decoration: none;
+}
+
+.l-color-white {
+  color: var(--white);
+}
+
+.l-color-gray-second {
+  color: var(--gray-second);
+}

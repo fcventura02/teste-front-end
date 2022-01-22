@@ -1,0 +1,14 @@
+.f-link {
+  width: 24px;
+  height: 24px;
+  margin: 12px;
+}
+
+.f-link:first-child {
+  margin-left: 0;
+}
+
+.f-link:hover {
+  filter: invert(17%) sepia(60%) saturate(1195%) hue-rotate(0deg)
+    brightness(102%) contrast(103%);
+}

@@ -1,0 +1,37 @@
+.footer {
+  background: #003e85;
+  padding: 100px 0;
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__container__item {
+  display: flex;
+	margin: auto;
+	text-align: center;
+  flex-direction: column;
+}
+
+.footer__container__item:last-child {
+	margin-top: 20px;
+  text-align: center;
+}
+
+@media (min-width: 759px) {
+	.footer__container__item{
+		margin: 0;
+	}
+  .footer__container__item:last-child {
+		margin-top: 0;
+    text-align: end;
+  }
+}
+
+.footer__container__link {
+  margin-top: 8px;
+}
