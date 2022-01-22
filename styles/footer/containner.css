@@ -1,6 +1,6 @@
 .footer {
   background: #003e85;
-  padding: 100px 0;
+  padding: 78px 0;
 }
 
 .footer__container {
@@ -8,6 +8,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  border-top: 1px solid var(--gray);
+  padding-top: 22px;
 }
 
 .footer__container__item {
@@ -25,6 +27,7 @@
 @media (min-width: 759px) {
 	.footer__container__item{
 		margin: 0;
+    text-align: start;
 	}
   .footer__container__item:last-child {
 		margin-top: 0;

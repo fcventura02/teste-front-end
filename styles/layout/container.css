@@ -2,3 +2,12 @@
 	width: clamp(300px, 90%, 1080px);
 	margin: auto;
 }
+
+.container_text{
+	max-width: 742px;
+	margin: auto;
+}
+
+.container--padding_vertical{
+	padding: 70px 0;
+}
