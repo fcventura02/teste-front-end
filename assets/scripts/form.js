@@ -5,6 +5,7 @@ const inputState = document.getElementById("state");
 const inputCity = document.getElementById("city");
 let timeAlert = null;
 let success = true;
+const baseURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
 
 inputState.addEventListener("change", (e) => {
   const item = stateList.childNodes;
@@ -22,7 +23,7 @@ inputState.addEventListener("change", (e) => {
   });
 });
 (async function getStates() {
-  await fetch("http://servicodados.ibge.gov.br/api/v1/localidades/estados")
+  await fetch(baseURL)
     .then((res) => res.json())
     .then((res) =>
       res.map(({ id, sigla, nome }) => {
@@ -37,7 +38,7 @@ inputState.addEventListener("change", (e) => {
 async function getCitys(id) {
   cityList.innerHTML = "";
   return await fetch(
-    `http://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios`
+    `${baseURL}/${id}/municipios`
   ).then((res) => res.json());
 }
 function setCitysInDataList(citys) {
