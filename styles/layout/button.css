@@ -1,0 +1,27 @@
+.l-button_close{
+	border: none;
+	padding: 5px 7px;
+	margin-left: auto;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: filter .3s ease-in;
+	background: none;
+	position: absolute;
+	top:0;
+	right: 10px;
+}
+
+.l-button_close{
+	color: var(--blue);
+}
+
+.l-button_close:hover{
+	filter: brightness(.9);
+}
+
+.l-button_close:after{
+  display: inline-block;
+  content: "\00d7"; 
+	font-size: 2rem /*20px*/;
+  line-height: 2.5rem /*30px*/;
+}

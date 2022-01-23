@@ -9,20 +9,6 @@
     url(../../assets/img/Banner1.png) fixed no-repeat 15% 0%;
 }
 
-/*
-.banner_container::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent linear-gradient(0deg, #ffffff00 0%, #000000 100%) 0%
-    0% no-repeat padding-box fixed;
-  opacity: 0.37;
-}
-*/
-
 .banner_container img {
   max-width: 100vw;
   object-fit: contain;
@@ -32,5 +18,6 @@
   .banner_container {
     background: linear-gradient(0deg, #ffffff00 0%, #00000044 100%) fixed,
     url(../../assets/img/Banner1.png) fixed no-repeat 0% 0%;
+    background-size: cover;
   }
 }

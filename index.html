@@ -21,9 +21,7 @@
     </header>
     <main>
       <section>
-        <article class="banner_container">
-          
-        </article>
+        <article class="banner_container"></article>
       </section>
       <section>
         <article class="container container_text container--padding_vertical">
@@ -86,7 +84,7 @@
                 </p>
               </div>
             </div>
-            <hr/>
+            <hr />
             <div class="l-card_item">
               <img
                 src="./assets/img/softweare.png"
@@ -113,6 +111,94 @@
             Quer conhecer a solução ideal para o seu campo? Fale agora mesmo com
             o nosso time de especialistas.
           </h2>
+
+          <form id="form"  class="container--padding_vertical form">
+            <div class="form_input">
+              <label for="name">Nome</label>
+              <input required type="text" id="name" />
+              <span class="input_error" id="erroMessage-name">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input">
+              <label for="tel">Telefone</label>
+              <input
+                required
+                type="tel"
+                id="tel"
+                maxlength="16"
+                minlength="14"
+              />
+              <span class="input_error" id="erroMessage-tel">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input">
+              <label for="email">E-mail</label>
+              <input required type="email" id="email" />
+              <span class="input_error" id="erroMessage-email">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input form_input-sm">
+              <label for="state">Estado</label>
+              <input
+                required
+                type="text"
+                id="state"
+                maxlength="2"
+                list="stateList"
+              />
+              <datalist id="stateList"> </datalist>
+              <span class="input_error" id="erroMessage-state">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input form_input-sm">
+              <label for="city">Cidade</label>
+              <input required type="text" id="city" list="cityList" disabled />
+              <datalist id="cityList"></datalist>
+              <span class="input_error" id="erroMessage-city">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input">
+              <label for="products">Selecione um produto:</label>
+              <input required type="text" id="products" list="productsList" />
+              <datalist id="productsList">
+                <option value="Monitores"></option>
+                <option value="Gestão de frota"></option>
+              </datalist>
+              <span class="input_error" id="erroMessage-products">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input">
+              <label for="message">Mensagem <span>(Opcional)</span></label>
+              <textarea id="message" rows="10"></textarea>
+            </div>
+            <div class="form_input-checkbox">
+              <div>
+                <label for="newsLater"
+                  >Desejo receber mais informações sobre produtos e serviços da
+                  New Holland</label
+                >
+                <input id="newsLater" type="checkbox" />
+              </div>
+            </div>
+            <div class="form_input-checkbox">
+              <div>
+                <label for="terms"
+                  >Li e concordo com a <b>Política de Privacidade</b> deste
+                  site</label
+                >
+                <input id="terms" type="checkbox" required />
+              </div>
+              <span class="input_error" id="erroMessage-terms">Este campo é obrigatório</span>
+            </div>
+            <div class="form_input">
+              <label for=""></label>
+              <input type="submit" value="Enviar" />
+            </div>
+          </form>
+        </article>
+        <article>
+          <div id="alert" class="alert alert-disabled">
+            <button onclick="closeAlert()" class="l-button_close"></button>
+            <h2 class="l-color-yellow">Obrigado pelo seu contato!</h2>
+            <p>
+              Assim que um de nossos especialistas vizualizar sua mensagem,
+              entraremos em contato.
+            </p>
+          </div>
         </article>
       </section>
     </main>
@@ -140,5 +226,6 @@
         </article>
       </section>
     </footer>
+    <script src="./assets/scripts/form.js"></script>
   </body>
 </html>
