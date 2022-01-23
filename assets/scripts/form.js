@@ -3,21 +3,8 @@ const stateList = document.getElementById("stateList");
 const cityList = document.getElementById("cityList");
 const inputState = document.getElementById("state");
 const inputCity = document.getElementById("city");
-const inputTel = document.getElementById("tel");
 let timeAlert = null;
 let success = true;
-
-inputTel.addEventListener("input", (e) => {
-  e.target.value = telMask(e.target.value);
-});
-
-const telMask = (value) => {
-  return value
-    .replace(/\D/g, "")
-    .replace(/(\d{2})(\d)/, "($1) $2")
-    .replace(/(\d{1})/, "$1")
-    .replace(/(\d{1})(\d{4})(\d{4})/, "$1 $2-$3");
-};
 
 inputState.addEventListener("change", (e) => {
   const item = stateList.childNodes;
@@ -62,12 +49,6 @@ function setCitysInDataList(citys) {
   });
 }
 
-function allertClassToogle(...nClass) {
-  nClass.map((item) => {
-    document.getElementById("alert").classList.toggle(item);
-  });
-}
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -83,6 +64,17 @@ form.addEventListener("submit", (e) => {
   }
 });
 
+function allertClassToogle(...nClass) {
+  nClass.map((item) => {
+    document.getElementById("alert").classList.toggle(item);
+  });
+}
+
+function closeAlert() {
+  timeAlert && window.clearTimeout(timeAlert);
+  allertClassToogle("alert-disabled", "alert-open");
+}
+
 function validateInputs(element) {
   if (element.id !== "message" && element.id !== "newsLater") {
     const emailIsValid =
@@ -97,11 +89,6 @@ function validateInputs(element) {
     }
   }
   return true;
-}
-
-function closeAlert() {
-  timeAlert && window.clearTimeout(timeAlert);
-  allertClassToogle("alert-disabled", "alert-open");
 }
 
 function validadeEmail(email) {
