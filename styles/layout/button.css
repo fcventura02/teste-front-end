@@ -7,8 +7,8 @@
 	transition: filter .3s ease-in;
 	background: none;
 	position: absolute;
-	top:0;
-	right: 10px;
+	top: -10px;
+	right: 0;
 }
 
 .l-button_close{

@@ -5,7 +5,7 @@ const inputState = document.getElementById("state");
 const inputCity = document.getElementById("city");
 let timeAlert = null;
 let success = true;
-const baseURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+const baseURL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
 
 inputState.addEventListener("change", (e) => {
   const item = stateList.childNodes;
@@ -15,10 +15,6 @@ inputState.addEventListener("change", (e) => {
       const citys = await getCitys(id);
       setCitysInDataList(citys);
       inputCity.removeAttribute("disabled");
-      inputCity.addEventListener("focusout", (e) => {
-        if (!validadeCity(inputCity, citys))
-          printErrorInput(inputCity, "Este campo está inválido");
-      });
     }
   });
 });
@@ -37,9 +33,7 @@ inputState.addEventListener("change", (e) => {
 })();
 async function getCitys(id) {
   cityList.innerHTML = "";
-  return await fetch(
-    `${baseURL}/${id}/municipios`
-  ).then((res) => res.json());
+  return await fetch(`${baseURL}/${id}/municipios`).then((res) => res.json());
 }
 function setCitysInDataList(citys) {
   citys.map(({ id, nome }) => {
@@ -57,23 +51,59 @@ form.addEventListener("submit", (e) => {
     validateInputs(element);
   }
   if (success) {
-    allertClassToogle("alert-disabled", "alert-open");
+    allertOppen("alert-success");
     timeAlert = window.setTimeout(() => {
-      allertClassToogle("alert-disabled", "alert-open");
+      allertClose();
     }, 5000);
     clearInputValue(e.target);
+  } else {
+    allertOppen("alert-error");
+    timeAlert = window.setTimeout(() => {
+      allertClose();
+    }, 5000);
   }
 });
 
-function allertClassToogle(...nClass) {
-  nClass.map((item) => {
-    document.getElementById("alert").classList.toggle(item);
-  });
+function allertOppen(typeAlert) {
+  const alert = document.getElementById("alert");
+  alert.innerHTML = "";
+  alert.classList.remove("alert-disabled");
+  alert.classList.add("alert-open");
+  alert.classList.add(typeAlert);
+
+  const button = document.createElement("button");
+  button.classList.add("l-button_close");
+  button.addEventListener("click", () => closeAlert());
+  alert.appendChild(button);
+
+  if (typeAlert === "alert-error") {
+    const span = document.createElement("span");
+    span.classList.add("l-color-white");
+    span.innerText = "Preencha todos os campos corretamente";
+    alert.appendChild(span);
+  } else {
+    const h2 = document.createElement("h2");
+    h2.classList.add("l-color-yellow");
+    h2.innerText = "Obrigado pelo seu contato!";
+    const p = document.createElement("p");
+    p.innerText = `Assim que um de nossos especialistas vizualizar sua mensagem,
+    entraremos em contato.`;
+    alert.appendChild(h2);
+    alert.appendChild(p);
+  }
+}
+
+function allertClose() {
+  const alert = document.getElementById("alert");
+  alert.innerHTML = "";
+  alert.classList.remove(...alert.classList);
+  alert.classList.add("alert");
+  alert.classList.add("alert-disabled");
 }
 
 function closeAlert() {
   timeAlert && window.clearTimeout(timeAlert);
-  allertClassToogle("alert-disabled", "alert-open");
+  allertClose();
 }
 
 function validateInputs(element) {
@@ -97,14 +127,6 @@ function validadeEmail(email) {
   if (!reg.test(email)) {
     return false;
   }
-  return true;
-}
-
-function validadeCity(element, array) {
-  const contain = array.filter(({ nome }) => {
-    return nome.toUpperCase() === element.value.toUpperCase();
-  });
-  if (contain.length !== 1) return false;
   return true;
 }
 
